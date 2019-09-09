@@ -14,11 +14,12 @@ The controller renders all the data to the view .  The main function of the cont
 
 # LoadModulesResources.php 
 Loads the files that are required to load a view .
+View data source comes from json file ( module-resources.json )
 
 # AccessController.php
 Controls access to a view or page that the user was granted . The access details are saved from the database , hence forth saying this class loads data from the database and passes the data to check which view a user can access only at runtime .
 
-Page sessions are also controlled from this class . Access is also enforced by an interface called <u> ReactToAccess.php </u> . The  routes are indeed
+Page sessions are also controlled from this class . Access is also enforced by an interface called <u> ReactToAccess.php </u> . The  routes are also policed by a token control mechanism that a user logged in has to keep valid in every page plus it is updated every time the user logged in  . If the web token expires the AccesController.php will , via the rReactToAccess.php interface , the reject access is invoked .
 
 
 # Views
